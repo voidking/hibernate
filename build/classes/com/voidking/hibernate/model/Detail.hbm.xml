@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.voidking.hibernate.model.Detail" table="detail">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="truename" type="java.lang.String">
+            <column name="TRUENAME" length="8" />
+        </property>
+        <property name="email" type="java.lang.String">
+            <column name="EMAIL" length="50" />
+        </property>
+        <one-to-one name="login" class="com.voidking.hibernate.model.Login" cascade="all" lazy="false"></one-to-one>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping>
+<!-- name指定POJO类，table指定对应数据库的表 -->
+    <class name="com.voidking.hibernate.model.Kcb" table="kcb">
+    	<!-- name指定主键，type主键类型 -->
+        <id name="kch" type="java.lang.String">
+        	<column name="kch" length="3"></column>
+        	<!-- 主键生成策略 -->
+        	<generator class="assigned"></generator>
+        </id>
+        
+        <!-- POJO属性及表中字段对应的属性 -->
+        <property name="kcm" type="java.lang.String">
+        	<column name="kcm" length="12"></column>
+        </property>
+        
+        <property name="kxxq" type="java.lang.Short">
+        	<column name="kxxq"></column>
+        </property>
+        
+        <property name="xs" type="java.lang.Integer">
+        	<column name="xs"></column>
+        </property>
+        
+        <property name="xf" type="java.lang.Integer">
+        	<column name="xf"></column>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.voidking.hibernate.model.Student" table="student">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="snumber" type="java.lang.String">
+            <column name="SNUMBER" length="10" not-null="true" />
+        </property>
+        <property name="sname" type="java.lang.String">
+            <column name="SNAME" length="10" />
+        </property>
+        <property name="sage" type="java.lang.Integer">
+            <column name="SAGE" />
+        </property>
+        <set name="courses" table="stu_cour" lazy="true" cascade="all">
+        	<key column="SID"></key>
+        	<many-to-many class="com.voidking.hibernate.model.Course" column="CID"/>
+        </set>
+    </class>
+</hibernate-mapping>

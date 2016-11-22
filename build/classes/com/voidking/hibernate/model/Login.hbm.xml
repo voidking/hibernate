@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.voidking.hibernate.model.Login" table="login">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="foreign">
+            	<param name="property">detail</param>
+            </generator>
+        </id>
+        <property name="username" type="java.lang.String">
+            <column name="USERNAME" length="20" not-null="true" />
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="PASSWORD" length="20" not-null="true" />
+        </property>
+        <one-to-one name="detail" class="com.voidking.hibernate.model.Detail" constrained="true"></one-to-one>
+    </class>
+</hibernate-mapping>
